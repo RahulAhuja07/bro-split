@@ -1,8 +1,8 @@
 import {ClerkProvider} from "@clerk/nextjs";
 import { Inter} from "next/font/google";
 import "./globals.css";
-import header from "@/components/header";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       className="min-h-full flex flex-col">
         <ClerkProvider>
           <ConvexClientProvider>
-          <header />
+          <Header />
           <main className="min-h-screen"> 
           {children}
           </main>
