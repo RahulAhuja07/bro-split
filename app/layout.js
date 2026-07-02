@@ -7,7 +7,10 @@ import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
-  title: "Bro Split"
+  title: "Bro Split",
+  icons: {
+    icon: "/logos/Logo_favicon_final.png"
+  }
 };
 
 export default function RootLayout({ children }) {
