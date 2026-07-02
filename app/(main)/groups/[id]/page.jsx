@@ -27,7 +27,7 @@ export default function GroupExpensesPage() {
   if (isLoading) {
     return (
       <div className="container mx-auto py-12">
-        <BarLoader width={"100%"} color="#36d7b7" />
+        <BarLoader width={"100%"} color="#16A34A" />
       </div>
     );
   }

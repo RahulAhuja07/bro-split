@@ -46,6 +46,7 @@ export function ExpenseForm({ type = "individual", onSuccess }) {
   const [participants, setParticipants] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedGroup, setSelectedGroup] = useState(null);
+  const [splitType, setSplitType] = useState("equal");
   const [splits, setSplits] = useState([]);
 
   // Mutations and queries
@@ -303,51 +304,62 @@ export function ExpenseForm({ type = "individual", onSuccess }) {
         <div className="space-y-2">
           <Label>Split type</Label>
           <Tabs
-            defaultValue="equal"
-            onValueChange={(value) => setValue("splitType", value)}
+            value={splitType}
+            onValueChange={(value) => {
+              setSplitType(value);
+              setValue("splitType", value);
+            }}
           >
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="equal">Equal</TabsTrigger>
               <TabsTrigger value="percentage">Percentage</TabsTrigger>
               <TabsTrigger value="exact">Exact Amounts</TabsTrigger>
             </TabsList>
-            <TabsContent value="equal" className="pt-4">
-              <p className="text-sm text-muted-foreground">
-                Split equally among all participants
-              </p>
-              <SplitSelector
-                type="equal"
-                amount={parseFloat(amountValue) || 0}
-                participants={participants}
-                paidByUserId={paidByUserId}
-                onSplitsChange={setSplits} // Use setSplits directly
-              />
-            </TabsContent>
-            <TabsContent value="percentage" className="pt-4">
-              <p className="text-sm text-muted-foreground">
-                Split by percentage
-              </p>
-              <SplitSelector
-                type="percentage"
-                amount={parseFloat(amountValue) || 0}
-                participants={participants}
-                paidByUserId={paidByUserId}
-                onSplitsChange={setSplits} // Use setSplits directly
-              />
-            </TabsContent>
-            <TabsContent value="exact" className="pt-4">
-              <p className="text-sm text-muted-foreground">
-                Enter the exact amounts
-              </p>
-              <SplitSelector
-                type="exact"
-                amount={parseFloat(amountValue) || 0}
-                participants={participants}
-                paidByUserId={paidByUserId}
-                onSplitsChange={setSplits} // Use setSplits directly
-              />
-            </TabsContent>
           </Tabs>
+          <div className="pt-4">
+            {splitType === "equal" && (
+              <>
+                <p className="text-sm text-muted-foreground">
+                  Split equally among all participants
+                </p>
+                <SplitSelector
+                  type="equal"
+                  amount={parseFloat(amountValue) || 0}
+                  participants={participants}
+                  paidByUserId={paidByUserId}
+                  onSplitsChange={setSplits}
+                />
+              </>
+            )}
+            {splitType === "percentage" && (
+              <>
+                <p className="text-sm text-muted-foreground">
+                  Split by percentage
+                </p>
+                <SplitSelector
+                  type="percentage"
+                  amount={parseFloat(amountValue) || 0}
+                  participants={participants}
+                  paidByUserId={paidByUserId}
+                  onSplitsChange={setSplits}
+                />
+              </>
+            )}
+            {splitType === "exact" && (
+              <>
+                <p className="text-sm text-muted-foreground">
+                  Enter the exact amounts
+                </p>
+                <SplitSelector
+                  type="exact"
+                  amount={parseFloat(amountValue) || 0}
+                  participants={participants}
+                  paidByUserId={paidByUserId}
+                  onSplitsChange={setSplits}
+                />
+              </>
+            )}
+          </div>
         </div>
       </div>
 

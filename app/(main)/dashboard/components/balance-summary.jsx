@@ -20,7 +20,7 @@ export function BalanceSummary({ balances }) {
       {hasOwed && (
         <div>
           <h3 className="text-sm font-medium flex items-center mb-3">
-            <ArrowUpCircle className="h-4 w-4 text-green-500 mr-2" />
+            <ArrowUpCircle className="h-4 w-4 text-green-600 mr-2" />
             Owed to you
           </h3>
           <div className="space-y-3">
@@ -38,7 +38,7 @@ export function BalanceSummary({ balances }) {
                   <span className="text-sm">{item.name}</span>
                 </div>
                 <span className="font-medium text-green-600">
-                  ${item.amount.toFixed(2)}
+                  ₹{item.amount.toFixed(2)}
                 </span>
               </Link>
             ))}
@@ -67,7 +67,7 @@ export function BalanceSummary({ balances }) {
                   <span className="text-sm">{item.name}</span>
                 </div>
                 <span className="font-medium text-red-600">
-                  ${item.amount.toFixed(2)}
+                  ₹{item.amount.toFixed(2)}
                 </span>
               </Link>
             ))}

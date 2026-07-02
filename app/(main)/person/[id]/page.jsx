@@ -27,7 +27,7 @@ export default function PersonExpensesPage() {
   if (isLoading) {
     return (
       <div className="container mx-auto py-12">
-        <BarLoader width={"100%"} color="#36d7b7" />
+        <BarLoader width={"100%"} color="#16A34A" />
       </div>
     );
   }
@@ -105,7 +105,7 @@ export default function PersonExpensesPage() {
             <div
               className={`text-2xl font-bold ${balance > 0 ? "text-green-600" : balance < 0 ? "text-red-600" : ""}`}
             >
-              ${Math.abs(balance).toFixed(2)}
+              ₹{Math.abs(balance).toFixed(2)}
             </div>
           </div>
         </CardContent>

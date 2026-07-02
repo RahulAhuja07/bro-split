@@ -34,7 +34,7 @@ export function GroupSelector({ onChange }) {
   };
 
   if (isLoading) {
-    return <BarLoader width={"100%"} color="#36d7b7" />;
+    return <BarLoader width={"100%"} color="#16A34A" />;
   }
 
   if (!data?.groups || data.groups.length === 0) {
@@ -70,7 +70,7 @@ export function GroupSelector({ onChange }) {
 
       {isLoading && selectedGroupId && (
         <div className="mt-2">
-          <BarLoader width={"100%"} color="#36d7b7" />
+          <BarLoader width={"100%"} color="#16A34A" />
         </div>
       )}
     </div>

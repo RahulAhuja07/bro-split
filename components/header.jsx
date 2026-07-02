@@ -15,11 +15,11 @@ const Header = () => {
     const path= usePathname()
 
   return (
-    <header className="fixed top-0 w-full border-b bg-white/95 backdrop-blur z-50 supports-[backdrop-filter]:bg-white/60"> 
+    <header className="fixed top-0 w-full border-b bg-white/95 backdrop-blur z-50 supports-[backdrop-filter]:bg-white/60">
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
             <Image
-                src={"/logos/Logo_main.png"}
+                src={"/logos/Logo_main_final.png"}
                 alt="Bro Split Logo"
                 width={200}
                 height={60}
@@ -76,7 +76,7 @@ const Header = () => {
             </SignInButton>
 
             <SignUpButton>
-              <Button className="bg-green-600 hover:bg-green-700 border-none">
+              <Button className="bg-green-600 hover:bg-emerald-900 border-none">
                 Get Started
               </Button>
             </SignUpButton>
@@ -84,7 +84,13 @@ const Header = () => {
         </div>
 
         </nav>
-        {isLoading && <BarLoader width={"100%"} color= "#3b82f6" />}
+        {isLoading && (
+          <BarLoader
+            width="100%"
+            color="#16A34A"
+            className="absolute bottom-0 left-0"
+          />
+        )}
     </header>
   );
 };
